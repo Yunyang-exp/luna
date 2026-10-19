@@ -211,3 +211,28 @@ body {
     linear-gradient(135deg, #00a4ef 0 50%, #ffb900 50% 100%)
       bottom left / 100% 50% no-repeat;
 }
+
+.taskbar-items {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  overflow: hidden;
+}
+
+.tray {
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 12px;
+  background: linear-gradient(to bottom,
+    var(--tray-1) 0%, var(--tray-2) 50%, var(--tray-1) 100%);
+  box-shadow: inset 1px 0 0 #0d77c4;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 0.35);
+}
+
+:focus-visible {
+  outline: 1px dotted #fff;
+  outline-offset: 1px;
+}
