@@ -1,22 +1,19 @@
+const ICONS = [
+  { id: "about", title: "About Me", variant: "user" },
+  { id: "projects", title: "My Projects", variant: "folder" },
+  { id: "readme", title: "readme.txt", variant: "notepad" },
+];
+
 export default function App() {
   return (
     <div className="root">
       <div className="desktop">
 
         <div className="icons">
-          <div className="icon">
-            <div className="icon-img icon-img--user" />
-            <span className="icon-label">About Me</span>
-          </div>
-
-          <div className="icon">
-            <div className="icon-img icon-img--folder" />
-            <span className="icon-label">My Projects</span>
-          </div>
-
-          <div className="icon">
-            <div className="icon-img icon-img--notepad" />
-            <span className="icon-label">readme.txt</span>
+          <div className="icons">
+            {ICONS.map((icon) => (
+              <DesktopIcon key={icon.id} title={icon.title} variant={icon.variant} />
+            ))}
           </div>
         </div>        
         <div
@@ -47,6 +44,20 @@ export default function App() {
         <div className="taskbar-items"></div>
         <div className="tray"><span>11:45</span></div>
       </div>
+    </div>
+  );
+}
+
+interface DesktopIconProps {
+  title: string;
+  variant: string;
+}
+
+function DesktopIcon({ title, variant }: DesktopIconProps) {
+  return (
+    <div className="icon">
+      <div className={`icon-img icon-img--${variant}`} />
+      <span className="icon-label">{title}</span>
     </div>
   );
 }
